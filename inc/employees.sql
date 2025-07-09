@@ -18,3 +18,17 @@ WHERE dept_emp.dept_no = '%s'
 AND first_name LIKE '%%%s%%' 
 AND TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) > '%s' 
 AND TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) < '%s';
+
+
+SELECT COUNT FROM employees JOIN titles ON employees.emp_no = titles.emp_no;
+
+SELECT 
+    titles.title,
+    SUM(CASE WHEN employees.gender = 'M' THEN 1 ELSE 0 END) AS M,
+    SUM(CASE WHEN employees.gender = 'F' THEN 1 ELSE 0 END) AS F,
+    AVG(salaries.salary)
+FROM employees
+JOIN titles ON employees.emp_no = titles.emp_no
+JOIN salaries ON employees.emp_no = salaries.emp_no
+GROUP BY titles.title;
+

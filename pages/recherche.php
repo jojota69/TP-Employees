@@ -8,6 +8,11 @@
     $nom = $_POST['nom'];
     $ageMin = $_POST['min'];
     $ageMax = $_POST['max'];
+
+    // var_dump( $numDept);
+    // var_dump( $nom);
+    // var_dump( $ageMin);
+    // var_dump( $ageMax);
     
     if (isset($_POST['num'])) {
         $page = (int)$_POST['num'];
@@ -51,6 +56,7 @@
                     <tr>
                         <th>Nom</th>
                         <th>Prénom</th>
+                        <th>Age</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,6 +64,7 @@
                         <tr>
                             <td><?php echo $donnee['first_name']; ?></td>
                             <td><?php echo $donnee['last_name'];?></td>
+                            <td><?php echo $donnee['Age']; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
